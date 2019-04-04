@@ -201,8 +201,14 @@ def run_test_practice_problem2b():
 
 
 def practice_problem2b(sequence):
-    #for k in range(len(sequence)):
-       # if
+    sequence1=''
+    for k in range(len(sequence)):
+        string = sequence[k]
+        if string!='':
+            letter = string[0]
+            sequence1=sequence1+letter
+    return sequence1
+
     """
     What comes in:
       -- A sequence of strings, e.g. ('hello', 'Bye', 'ok joe')
@@ -222,7 +228,7 @@ def practice_problem2b(sequence):
       :type sequence: [str]
     """
     ###########################################################################
-    # TODO: 4. Implement and test this function.
+    # Done: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     ###########################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
