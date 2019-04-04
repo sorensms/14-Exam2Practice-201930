@@ -3,8 +3,8 @@ PRACTICE Exam 2, practice_problem 3.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Maddie Sorensen.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -154,6 +154,11 @@ def run_test_practice_problem3a():
 
 
 def practice_problem3a(circles):
+    product=1
+    for k in range (len(circles)):
+        circle=circles[k]
+        product=product*circle.center.x
+    return product
     """
     What comes in:  A sequence of rg.Circles.
     What goes out:  Returns the product of the x-coordinates
@@ -173,7 +178,7 @@ def practice_problem3a(circles):
       :type sequence: [rg.Circle]
     """
     ###########################################################################
-    # TODO: 2. Implement and test this function.
+    # Done: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     ###########################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -301,6 +306,14 @@ def run_test_practice_problem3b():
 
 
 def practice_problem3b(sequence):
+    count=0
+    for k in range(len(sequence)):
+        if sequence[k]==sequence[len(sequence)]:
+            count=1
+    if count==1:
+        return True
+    else:
+        return False
     """
     What comes in: A non-empty sequence.
     What goes out: Returns True if the last item of the sequence
@@ -443,6 +456,12 @@ def run_test_practice_problem3c():
 
 
 def practice_problem3c(sequence):
+    sequence1=[]
+    for k in range (len(sequence)):
+        if sequence[k]==0:
+            sequence1=sequence1+[k]
+    return sequence
+
     """
     What comes in: A non-empty sequence of integers.
     What goes out: Returns a list of integers,
@@ -566,6 +585,9 @@ def run_test_practice_problem3d():
 
 
 def practice_problem3d(sequence):
+    for k in range(len(sequence)):
+        if sequence[k]==0:
+            return k
     """
     What comes in: A sequence of integers.
     What goes out: Returns the first (leftmost) place (index)
@@ -729,6 +751,12 @@ def run_test_practice_problem3e():
 
 
 def practice_problem3e(sequence):
+    sum=0
+    for k in range (len(sequence)):
+        if sequence[k]%2==0:
+            sum=sum+sequence[k]
+    return sum
+
     """
     What comes in:
       A sequence of numbers.
