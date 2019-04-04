@@ -307,8 +307,8 @@ def run_test_practice_problem3b():
 
 def practice_problem3b(sequence):
     count=0
-    for k in range(len(sequence)):
-        if sequence[k]==sequence[len(sequence)]:
+    for k in range(len(sequence)-1):
+        if sequence[k]==sequence[len(sequence)-1]:
             count=1
     if count==1:
         return True
@@ -355,7 +355,7 @@ def practice_problem3b(sequence):
       :type: sequence: list    or tuple or string
     """
     ###########################################################################
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     # IMPLEMENTATION REQUIREMENT:  You are NOT allowed to use the
@@ -460,7 +460,7 @@ def practice_problem3c(sequence):
     for k in range (len(sequence)):
         if sequence[k]==0:
             sequence1=sequence1+[k]
-    return sequence
+    return sequence1
 
     """
     What comes in: A non-empty sequence of integers.
@@ -489,7 +489,7 @@ def practice_problem3c(sequence):
       :type: sequence: list    or tuple or string
     """
     ###########################################################################
-    # TODO: 4. Implement and test this function.
+    # Done: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     ###########################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -588,6 +588,8 @@ def practice_problem3d(sequence):
     for k in range(len(sequence)):
         if sequence[k]==0:
             return k
+
+    return -1
     """
     What comes in: A sequence of integers.
     What goes out: Returns the first (leftmost) place (index)
@@ -615,7 +617,7 @@ def practice_problem3d(sequence):
       :type: sequence: list    or tuple or string
     """
     ###########################################################################
-    # TODO: 5. Implement and test this function.
+    # Done: 5. Implement and test this function.
     #     The testing code is already written for you (above).
     ###########################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -638,7 +640,8 @@ def practice_problem3d(sequence):
     #
     #          This solution should *** HAVE NO LOOP (no FOR). ***
     ###########################################################################
-
+    new=practice_problem3c(sequence)
+    return new[0]
 
 def run_test_practice_problem3e():
     """ Tests the    practice_problem3e    function. """
@@ -753,7 +756,7 @@ def run_test_practice_problem3e():
 def practice_problem3e(sequence):
     sum=0
     for k in range (len(sequence)):
-        if sequence[k]%2==0:
+        if k%2==0:
             sum=sum+sequence[k]
     return sum
 
@@ -772,7 +775,7 @@ def practice_problem3e(sequence):
       :type sequence: list(float)    or tuple(float)
     """
     # -------------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # Done: 7. Implement and test this function.
     #     The testing code is already written for you (above).
     ###########################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)

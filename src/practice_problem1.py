@@ -43,9 +43,9 @@ def main():
     run_test_init()
     run_test_append_string()
     run_test_double()
-    # run_test_shrink()
-    # run_test_double_then_shrink()
-    # run_test_reset()
+    run_test_shrink()
+    run_test_double_then_shrink()
+    run_test_reset()
     # run_test_steal()
     # run_test_get_history()
     # run_test_combined_box()
@@ -66,10 +66,14 @@ class Box(object):
     def __init__(self, contents, volume):
         if len(contents)<=volume:
             self.contents=contents
+            self.conents1=contents
             self.volume=volume
+            self.volume1=volume
         else:
             self.contents=''
+            self.contents1=''
             self.volume=volume
+            self.volume1=volume
 
         """
         What comes in:
@@ -230,6 +234,23 @@ class Box(object):
         #######################################################################
 
     def shrink(self, new_volume):
+        print (self.contents)
+        shrink=''
+        discarded=''
+        if len(self.contents)>new_volume:
+            for k in range(new_volume):
+                shrink = shrink + self.contents[k]
+            for a in range(new_volume,len(self.contents)):
+                discarded=discarded+self.contents[a]
+        else:
+            discarded=''
+            shrink=self.contents
+        self.contents=shrink
+        self.volume=new_volume
+        return discarded
+
+
+
         """
         What comes in:
           -- self
@@ -265,7 +286,7 @@ class Box(object):
           :type new_volume: int
         """
         # ---------------------------------------------------------------------
-        # TODO: 5. Implement and test this function.
+        # Done: 5. Implement and test this function.
         #     The testing code is already written for you (above).
         # ---------------------------------------------------------------------
         # ---------------------------------------------------------------------
@@ -278,6 +299,10 @@ class Box(object):
         # ---------------------------------------------------------------------
 
     def double_then_shrink(self, new_volume):
+        doub=self.double(new_volume)
+        self.volume=self.shrink(doub)
+        return (len(self.discarded))
+
         """
         What comes in:
           -- self
@@ -331,6 +356,8 @@ class Box(object):
         # ---------------------------------------------------------------------
 
     def reset(self):
+        self.contents=self.contents1
+        self.volume=self.volume1
         """
         What comes in:
           -- self
@@ -350,6 +377,8 @@ class Box(object):
         # ---------------------------------------------------------------------
 
     def steal(self, other_box):
+        #self.contents = self.append_string(other_box.contents)
+        #other_box.contents=
         """
         What comes in:
           -- self
@@ -382,6 +411,7 @@ class Box(object):
         #######################################################################
 
     def get_history(self):
+        print(self)
         """
         What comes in:
           -- self
